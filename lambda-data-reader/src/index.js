@@ -19,12 +19,12 @@ module.exports.handler = async (event, context) => {
     const state = body.state
     console.log(state)
     const people = await repository.getPeopleByState(state)
-    // if (people && people.length > 0) {
-    //   people.forEach(p => {
-    //     console.log(p.first_name)
+    if (people && people.length > 0) {
+      people.forEach(p => {
+        console.log(p.first_name)
 
-    //   })
-    // }
+      })
+    }
   }
   return {OK: true, statusCode:200}
 }
