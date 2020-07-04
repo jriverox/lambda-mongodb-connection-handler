@@ -1,0 +1,4 @@
+development:
+  MONGO:
+    URI: "mongodb+srv://xxx:xxx@cluster0-8hxu4.mongodb.net/m201"
+    POOL_SIZE: 10
