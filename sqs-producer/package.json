@@ -1,0 +1,18 @@
+{
+  "name": "sqs-producer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.709.0",
+    "cross-env": "^7.0.2",
+    "yenv": "^2.1.1"
+  }
+}
