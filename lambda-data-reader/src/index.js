@@ -4,16 +4,16 @@ const dbConnector = require('./db-connector')
 const Repository = require('./repository')
 const env = yenv()
 
-let cachedClient
+let cachedDbClient
 
 
 
 module.exports.handler = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false
   console.log('event: ', event)
-  cachedClient = await dbConnector.connect(env.MONGO.URI, cachedClient, {poolSize: env.MONGO.POOL_SIZE, useNewUrlParser: true, useUnifiedTopology: true})
-  const db = cachedClient.db('m201')
-  const repository = new Repository(db)
+  cachedDbClient = await dbConnector.connect(env.MONGO.URI, cachedDbClient, {poolSize: env.MONGO.POOL_SIZE, useNewUrlParser: true, useUnifiedTopology: true})
+  //const db = cachedDbClient.db('m201')
+  const repository = new Repository(cachedDbClient, 'm201')
   for (const record of event.Records) {
     const body = JSON.parse(record.body)
     const state = body.state
